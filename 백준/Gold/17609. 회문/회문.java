@@ -27,11 +27,9 @@ public class Main {
     }
 
     public static boolean checkPalindrome(char[] charArr, int i, int j){
-        if(i>=j) {
-            return true;
+        while (i<j){
+            if(charArr[i++]!=charArr[j--]) return false;
         }
-        if(charArr[i]==charArr[j]){
-           return checkPalindrome(charArr, i+1, j-1);
-        }else return false;
+        return true;
     }
 }
