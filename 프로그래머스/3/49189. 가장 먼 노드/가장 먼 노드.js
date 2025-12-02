@@ -2,7 +2,7 @@ function solution(n, edge) {
     let answer = 0, max = 0;
     let graph = Array.from(Array(n+1), ()=>[]);
     let nodes = new Array(n+1).fill(-1);
-    let pq = [];
+    let queue = [];
     
     // 그래프 정보 채우기
     for(let row of edge){
@@ -12,10 +12,10 @@ function solution(n, edge) {
     }
     
     // 1번 노드 - 각 노드 사이의 간선 개수 구하기
-    pq.push(1);
+    queue.push(1);
     nodes[1]=0;
-    while(pq.length>0){
-        let node = pq.shift();
+    while(queue.length>0){
+        let node = queue.shift();
         for(let v of graph[node]){
             if(nodes[v]===-1){
                 nodes[v] = nodes[node]+1;
@@ -24,7 +24,7 @@ function solution(n, edge) {
                     answer=0;
                 }
                 answer++;
-                pq.push(v);
+                queue.push(v);
             }
         }
     }
