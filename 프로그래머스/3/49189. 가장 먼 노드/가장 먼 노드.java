@@ -15,7 +15,7 @@ class Solution {
             graph.get(v2).add(v1);
         }
         
-        Queue<Integer> pq = new LinkedList<>();
+        Queue<Integer> pq = new ArrayDeque<>();
         int[] edges = new int[n+1];
         
         pq.offer(1);
