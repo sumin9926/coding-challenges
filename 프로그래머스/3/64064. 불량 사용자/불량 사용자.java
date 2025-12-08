@@ -14,19 +14,15 @@ class Solution {
     
     public void dfs(int idx, String[] userIds, String[] bannedIds){
         if(idx==bannedIds.length){
-            List<String> list = new ArrayList<>(bannedUsers);
-            Collections.sort(list);
-            String key = String.join(",",list);
+            String key = Arrays.toString(isChecked);
             results.add(key);
             return;
         }else{
             for(int i=0; i<userIds.length; i++){
                 if(!isChecked[i] && isBanned(userIds[i], bannedIds[idx])){
                     isChecked[i]=true;
-                    bannedUsers.offerLast(userIds[i]);
                     dfs(idx+1, userIds, bannedIds);
                     isChecked[i]=false;
-                    bannedUsers.pollLast();
                 }
             }
         }
@@ -34,7 +30,6 @@ class Solution {
     
     static boolean[] isChecked;
     static Set<String> results = new HashSet<>();
-    static Deque<String> bannedUsers = new ArrayDeque<>();
     
     public int solution(String[] userIds, String[] bannedIds) {
         isChecked = new boolean[userIds.length];
