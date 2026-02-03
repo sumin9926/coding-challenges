@@ -20,11 +20,7 @@ public class Main {
             // 칸토어 집합 근사 만들기
             cantor(0, strLength - 1);
             // 답 저장
-            StringBuilder result = new StringBuilder();
-            for (int i = 0; i < strLength; i++) {
-                result.append(chars[i]);
-            }
-            sb.append(result).append('\n');
+            sb.append(chars).append('\n');
         }
         System.out.print(sb);
     }
