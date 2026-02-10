@@ -15,7 +15,6 @@ public class Main {
         M = Integer.parseInt(st.nextToken());
         arr = new int[N + 1];
         seq = new int[M];
-        arr[0] = 1;
         DFS(0);
         System.out.print(sb);
     }
@@ -23,9 +22,9 @@ public class Main {
     static void DFS(int level) {
         if (level == M) {
             for (int x : seq) {
-                System.out.print(x + " ");
+                sb.append(x).append(" ");
             }
-            System.out.println();
+            sb.append('\n');
         } else {
             for (int i = 1; i <= N; i++) {
                 if (arr[i] == 1) continue;
